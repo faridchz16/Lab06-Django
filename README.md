@@ -16,7 +16,7 @@ Una vez ejecutado el servidor (`python manage.py runserver`), puedes acceder a:
 
 ---
 
-## 📋 Resumen de Implementación (13 Pasos del Procedimiento)
+## 📋 Resumen de Implementación 
 
 1. **Estructura y Dependencias:** Creación del proyecto, instalación de **Pillow** para imágenes y registro de la aplicación `news` en `INSTALLED_APPS`.
 2. **Configuración de Rutas y Medios:** Configuración en `settings.py` de directorios de plantillas (`DIRS`), archivos estáticos (`STATICFILES_DIRS`) y multimedia (`MEDIA_URL` / `MEDIA_ROOT`), sirviendo los medios en desarrollo desde `config/urls.py`.
@@ -42,7 +42,7 @@ Una vez ejecutado el servidor (`python manage.py runserver`), puedes acceder a:
 
 ---
 
-## 🤖 Agentes Especializados (opencode)
+## 🤖 Agentes Utilizados
 
 Durante el desarrollo de este laboratorio, se utilizaron subagentes especializados para la planificación, implementación y auditoría:
 
@@ -60,25 +60,18 @@ Durante el desarrollo de este laboratorio, se utilizaron subagentes especializad
 
 2. **Detalle del Artículo**:
    * *Descripción:* Vista individual de la noticia destacando la imagen de portada, metadatos del autor y contenido enriquecido.
-   * ![Detalle Noticia](screenshots/02_detalle_noticia.png)
+   * ![Detalle Noticia](screenshots-lab06/02_detalle_noticia.png)
 
 3. **Listado por Categoría**:
    * *Descripción:* Filtrado dinámico de noticias agrupadas por categoría temática.
-   * ![Listado Categoría](screenshots/03_listado_categoria.png)
+   * ![Listado Categoría](screenshots-lab06/03_listado_categoria.png)
 
 4. **Panel de Administración Personalizado**:
    * *Descripción:* Interfaz de Django Admin para la gestión de Autores, Categorías y Artículos con `list_display`, `list_filter` y `search_fields`.
-   * ![Django Admin](screenshots/04_django_admin.png)
+   * ![Django Admin](screenshots-lab06/04_django_admin.png)
 
 5. **Búsqueda en Tiempo Real**:
    * *Descripción:* Resultados de búsqueda filtrados instantáneamente mediante consultas ORM.
-   * ![Búsqueda](screenshots/05_resultado_busqueda.png)
+   * ![Búsqueda](screenshots-lab06/05_resultado_busqueda.png)
 
----
 
-## 🏆 Cumplimiento de la Rúbrica (20 Puntos)
-
-1. **Motor de plantillas con herencia y fragmentos (5/5 pts):** Uso de `base.html` y fragmento `_article_card.html` sin duplicación de código.
-2. **Datos del modelo con variables, etiquetas y filtros (5/5 pts):** Uso correcto de bucles, condicionales, formato de fechas, truncado y filtro `safe`.
-3. **Gestión desde el Administrador (5/5 pts):** Administración completa vinculada en tiempo real al frontend mediante el panel personalizado de Django.
-4. **Entrega y Repositorio (5/5 pts):** Estructura ordenada, código PEP 8, nombres en inglés y documentación completa en español.

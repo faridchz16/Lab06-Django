@@ -1,0 +1,26 @@
+{% load static %}
+<div class="article-card">
+    <div class="card-img-wrapper">
+        {% if article.featured_image %}
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="card-img">
+        {% else %}
+            <div class="card-img-placeholder">
+                <span>NoticiasGlobales</span>
+            </div>
+        {% endif %}
+        {% if article.category %}
+            <a href="{% url 'news:category_list' article.category.slug %}" class="card-badge">{{ article.category.name }}</a>
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <div class="card-meta">
+            <span>Por {{ article.author.name }}</span> &bull; 
+            <span>{{ article.published_date|date:"j \d\e F, Y" }}</span>
+        </div>
+        <h3 class="card-title"><a href="{% url 'news:article_detail' article.slug %}">{{ article.title }}</a></h3>
+        <p class="summary">{{ article.summary|default:article.content|truncatechars:110 }}</p>
+        <div class="card-footer">
+            <a href="{% url 'news:article_detail' article.slug %}" class="read-more">Leer más &rarr;</a>
+        </div>
+    </div>
+</div>

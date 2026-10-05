@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Noticias Globales - Portal Informativo{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="main-header">
+            <div class="container header-flex">
+                <h1 class="logo"><a href="{% url 'news:home' %}">Noticias<span>Globales</span></a></h1>
+                <div class="header-search">
+                    <form action="{% url 'news:home' %}" method="get">
+                        <input type="text" name="q" placeholder="Buscar noticias..." value="{{ query|default:'' }}" aria-label="Buscar">
+                        <button type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="{% url 'news:home' %}">Portada</a></li>
+                    {% for cat in categories %}
+                        <li><a href="{% url 'news:category_list' cat.slug %}">{{ cat.name }}</a></li>
+                    {% endfor %}
+                    <li class="admin-nav-item"><a href="{% url 'admin:index' %}" target="_blank">&#9881; Administración</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container main-layout">
+        <main class="content-area">
+            {% block content %}{% endblock %}
+        </main>
+        
+        <aside class="sidebar-area">
+            {% block sidebar %}
+                <div class="sidebar-widget">
+                    <h3>Categorías</h3>
+                    <ul class="category-list-widget">
+                        {% for cat in categories %}
+                            <li>
+                                <a href="{% url 'news:category_list' cat.slug %}">
+                                    <span class="cat-name">{{ cat.name }}</span>
+                                    <span class="cat-arrow">&rsaquo;</span>
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li>No hay categorías disponibles.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sidebar-widget newsletter-widget">
+                    <h3>Boletín Informativo</h3>
+                    <p>Recibe las noticias más importantes directamente en tu correo.</p>
+                    <form onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            {% endblock %}
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-flex">
+            <div class="footer-col">
+                <h3>NoticiasGlobales</h3>
+                <p>Tu fuente confiable de información internacional, tecnología, ciencia y economía en tiempo real.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="{% url 'news:home' %}">Portada</a></li>
+                    {% for cat in categories %}
+                        <li><a href="{% url 'news:category_list' cat.slug %}">{{ cat.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Email: contacto@noticiasglobales.es</p>
+                <p>Teléfono: +34 900 123 456</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 NoticiasGlobales. Todos los derechos reservados. Desarrollado con Django.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

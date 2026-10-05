@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name }} - NoticiasGlobales{% endblock %}
+
+{% block content %}
+<div class="category-header-banner">
+    <span class="category-tag">Categoría</span>
+    <h2>{{ category.name }}</h2>
+    {% if category.description %}
+        <p class="category-desc">{{ category.description }}</p>
+    {% endif %}
+</div>
+
+<div class="section-header">
+    <h3>Artículos en {{ category.name }} ({{ articles|length }})</h3>
+</div>
+
+<div class="articles-grid">
+    {% for article in articles %}
+        {% include 'news/_article_card.html' %}
+    {% empty %}
+        <div class="empty-state">
+            <p>No se encontraron artículos en esta categoría.</p>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="mt-4">
+    <a href="{% url 'news:home' %}" class="back-btn">&larr; Volver a la Portada</a>
+</div>
+{% endblock %}

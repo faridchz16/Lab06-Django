@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Portada - NoticiasGlobales{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <div class="section-header">
+        <h2>Últimas Noticias</h2>
+        <span class="live-indicator"><span class="pulse"></span> En Vivo</span>
+    </div>
+
+    <div class="articles-grid">
+        {% for article in articles %}
+            {% include 'news/_article_card.html' %}
+        {% empty %}
+            <div class="empty-state">
+                <p>No hay artículos de noticias publicados en este momento.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

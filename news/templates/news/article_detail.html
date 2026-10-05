@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }} - NoticiasGlobales{% endblock %}
+
+{% block content %}
+<article class="article-detail-container">
+    <div class="detail-header">
+        {% if article.category %}
+            <a href="{% url 'news:category_list' article.category.slug %}" class="detail-badge">{{ article.category.name }}</a>
+        {% endif %}
+        <h2>{{ article.title }}</h2>
+        <div class="detail-meta">
+            <div class="author-info">
+                <strong>Por {{ article.author.name }}</strong>
+                {% if article.author.email %}
+                    <span>({{ article.author.email }})</span>
+                {% endif %}
+            </div>
+            <div class="publish-date">
+                Publicado el {{ article.published_date|date:"j \d\e F, Y \a \l\a\s H:i" }}
+            </div>
+        </div>
+    </div>
+
+    {% if article.featured_image %}
+        <div class="detail-img-wrapper">
+            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="detail-img">
+            <div class="img-caption">Imagen destacada: {{ article.title }}</div>
+        </div>
+    {% endif %}
+
+    <div class="article-body">
+        {{ article.content|safe }}
+    </div>
+
+    <div class="detail-footer-actions">
+        <a href="{% url 'news:home' %}" class="back-btn">&larr; Volver a la Portada</a>
+    </div>
+</article>
+{% endblock %}

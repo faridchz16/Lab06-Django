@@ -42,6 +42,40 @@ Una vez ejecutado el servidor (`python manage.py runserver`), puedes acceder a:
 
 ---
 
+## 🤖 Agentes Especializados (opencode)
+
+Durante el desarrollo de este laboratorio, se utilizaron subagentes especializados para la planificación, implementación y auditoría:
+
+- **`django-architect`**: Especializado en la arquitectura Django, creación de la app `news`, modelos relacionales, migraciones y configuración de archivos estáticos y multimedia.
+- **`django-template-expert`**: Especializado en el motor de plantillas, herencia (`base.html`), fragmentos (`_article_card.html`), etiquetas de control, filtros, enrutamiento `{% url %}` y pruebas de escapado automático.
+- **`qa-verifier`**: Especializado en la auditoría de calidad contra los 13 pasos del procedimiento y la rúbrica de calificación de 20 puntos.
+
+---
+
+## 📸 Capturas y Evidencias del Proyecto
+
+1. **Portada Principal del Portal**:
+   * *Descripción:* Vista principal del portal web mostrando la cuadrícula de noticias con sus imágenes ilustrativas, categorías y barra de navegación.
+   * ![Portada Principal](screenshots/01_portada_noticias.png)
+
+2. **Detalle del Artículo**:
+   * *Descripción:* Vista individual de la noticia destacando la imagen de portada, metadatos del autor y contenido enriquecido.
+   * ![Detalle Noticia](screenshots/02_detalle_noticia.png)
+
+3. **Listado por Categoría**:
+   * *Descripción:* Filtrado dinámico de noticias agrupadas por categoría temática.
+   * ![Listado Categoría](screenshots/03_listado_categoria.png)
+
+4. **Panel de Administración Personalizado**:
+   * *Descripción:* Interfaz de Django Admin para la gestión de Autores, Categorías y Artículos con `list_display`, `list_filter` y `search_fields`.
+   * ![Django Admin](screenshots/04_django_admin.png)
+
+5. **Búsqueda en Tiempo Real**:
+   * *Descripción:* Resultados de búsqueda filtrados instantáneamente mediante consultas ORM.
+   * ![Búsqueda](screenshots/05_resultado_busqueda.png)
+
+---
+
 ## 🏆 Cumplimiento de la Rúbrica (20 Puntos)
 
 1. **Motor de plantillas con herencia y fragmentos (5/5 pts):** Uso de `base.html` y fragmento `_article_card.html` sin duplicación de código.

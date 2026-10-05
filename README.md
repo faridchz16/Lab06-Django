@@ -56,7 +56,7 @@ Durante el desarrollo de este laboratorio, se utilizaron subagentes especializad
 
 1. **Portada Principal del Portal**:
    * *Descripción:* Vista principal del portal web mostrando la cuadrícula de noticias con sus imágenes ilustrativas, categorías y barra de navegación.
-   * ![Portada Principal](screenshots/01_portada_noticias.png)
+   * ![Portada Principal](screenshots-lab06/01_portada_noticias.png)
 
 2. **Detalle del Artículo**:
    * *Descripción:* Vista individual de la noticia destacando la imagen de portada, metadatos del autor y contenido enriquecido.
@@ -68,7 +68,7 @@ Durante el desarrollo de este laboratorio, se utilizaron subagentes especializad
 
 4. **Panel de Administración Personalizado**:
    * *Descripción:* Interfaz de Django Admin para la gestión de Autores, Categorías y Artículos con `list_display`, `list_filter` y `search_fields`.
-   * ![Django Admin](screenshots-lab06/04_django_admin.png)
+   * ![Django Admin](screenshots-lab06/4_django_admin.png)
 
 5. **Búsqueda en Tiempo Real**:
    * *Descripción:* Resultados de búsqueda filtrados instantáneamente mediante consultas ORM.
